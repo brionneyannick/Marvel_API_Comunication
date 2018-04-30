@@ -1,0 +1,6 @@
+<% @events.each do |event| %>
+  <div><%= image_tag "#{event.thumbnail}.jpg" %></div>
+  <div><%= event.title %></div>
+  <div><%= event.description %></div>
+  <div><%= link_to event.event_id, event_path(event.event_id) %></div>
+<% end %>

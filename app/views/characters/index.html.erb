@@ -1,0 +1,4 @@
+<% @characters.each do |character| %>
+  <div><%= image_tag "#{character.thumbnail}.jpg" %></div>
+  <div><%= link_to character.name, character_path(character.character_id) %></div>
+<% end %>
