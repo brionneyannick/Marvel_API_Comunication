@@ -1,0 +1,43 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>Person</th>
+      <th></th>
+      <th>Character</th>
+      <th>WINNER</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @fights.each do |fight| %>
+      <tr>
+        <td>
+          <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="<%= fight.winner %>" alt="Card image cap">
+            <div class="card-body">
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+          </div>
+        </td>
+        <td>
+
+        </td>
+        <td>
+          <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="<%=  %>" alt="Card image cap">
+            <div class="card-body">
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+          </div>
+        </td>
+        <td>
+          <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="<%=  %>" alt="Card image cap">
+            <div class="card-body">
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+          </div>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

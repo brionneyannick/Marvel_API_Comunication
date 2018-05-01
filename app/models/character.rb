@@ -1,4 +1,5 @@
 class Character
+
   attr_accessor :character_id, :name, :thumbnail, :description
 
   def initialize(args)

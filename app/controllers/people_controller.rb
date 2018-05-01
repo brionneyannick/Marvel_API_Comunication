@@ -10,8 +10,6 @@ class PeopleController < ApplicationController
   # GET /people/1
   # GET /people/1.json
   def show
-    @wins = @person.fights.where(winner:true)
-    @loses = @person.fights.where(winner:false)
   end
 
   # GET /people/new
@@ -71,6 +69,6 @@ class PeopleController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def person_params
-      params.require(:person).permit(:name, :age)
+      params.require(:person).permit(:name, :age, :img, :lose)
     end
 end

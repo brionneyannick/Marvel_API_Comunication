@@ -1,8 +1,10 @@
 class CreateFights < ActiveRecord::Migration[5.1]
   def change
     create_table :fights do |t|
-      t.boolean :winner
-      t.references :person, foreign_key: true
+      t.string :win_id, null: false
+      t.string :win_class, null: false
+      t.string :lose_id, null: false
+      t.string :lose_class, null: false
 
       t.timestamps
     end

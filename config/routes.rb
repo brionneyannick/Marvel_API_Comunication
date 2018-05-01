@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :fights, only: [:index, :show]
+
   resources :series, only: [:index, :show]
 
   resources :events, only: [:index, :show]

@@ -55,3 +55,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # My own rubygems
 gem 'httparty'
+gem 'whenever'
+gem 'carrierwave'
