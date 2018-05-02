@@ -6,7 +6,13 @@ Rails.application.routes.draw do
 
   resources :events, only: [:index, :show]
 
-  resources :characters, only: [:index, :show]
+  resources :characters, only: [:index, :show] do
+    member do
+      get "comics"
+      get "events"
+      get "series"
+    end
+  end
 
   resources :comics, only: [:index, :show]
 

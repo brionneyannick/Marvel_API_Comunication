@@ -1,4 +1,11 @@
 <% @characters.each do |character| %>
+  <br>
   <div><%= image_tag "#{character.thumbnail}.jpg" %></div>
-  <div><%= link_to character.name, character_path(character.character_id) %></div>
+  <div>
+    <%= link_to character.name, character_path(character.character_id), class: :btn %>
+    <%= link_to "Comics", comics_character_path(character.character_id), class: :btn %>
+    <%= link_to "Events", events_character_path(character.character_id), class: :btn %>
+    <%= link_to "Series", series_character_path(character.character_id), class: :btn %>
+  </div>
+
 <% end %>
