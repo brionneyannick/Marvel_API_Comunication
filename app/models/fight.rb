@@ -1,20 +1,21 @@
 class Fight < ApplicationRecord
   validates :win_id, :lose_id, :win_class, :lose_class, presence: true
 
-  def self.start
+  def self.start(person = Person.where(lose: false).sample)
+
     dices = [1, 2, 3, 4, 5, 6]
-    person = Person.where(lose: false).sample
     until person.lose
       characters = Character.find_all
       used_characters = UsedCharacter.ids
       character = characters.reject { |i| used_characters.include?(i.character_id) }.sample
-
       character_dice = 0
       person_dice =  0
+
       until character_dice != person_dice
         character_dice = dices.sample +  dices.sample
         person_dice =  dices.sample +  dices.sample
       end
+
       if character_dice > person_dice
         Fight.create(
           win_id: character.character_id,
@@ -68,4 +69,5 @@ class Fight < ApplicationRecord
       character = Character.find(lose_id)
     end
   end
+
 end

@@ -8,23 +8,32 @@
       <th>Name</th>
       <th>Age</th>
       <th>Img</th>
-      <th>Wins</th>
-      <th>Loses</th>
-      <th>Dead</th>
-      <th colspan="3"></th>
+      <th>Status</th>
+      <th></th>
     </tr>
   </thead>
 
   <tbody>
     <% @people.each do |person| %>
       <tr>
-        <td><%= person.name %></td>
-        <td><%= person.age %></td>
-        <td><%= image_tag person.img, class: :img_index %></td>
-        <td><%= person.lose %></td>
-        <td><%= link_to 'Show', person %></td>
-        <td><%= link_to 'Edit', edit_person_path(person) %></td>
-        <td><%= link_to 'Destroy', person, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><h4><%= person.name %></h4></td>
+        <td><h4><%= person.age %></h4></td>
+        <td><%= image_tag person.img, class: "img_index" %></td>
+        <% if person.lose %>
+          <td><h4>Dead</h4></td>
+        <% else %>
+          <td><h4>Alive</h4></td>
+        <% end %>
+        <td>
+          <%= link_to 'Show', person, class: "btn btn-success" %> |
+          <%= link_to 'Edit', edit_person_path(person), class: "btn btn-info" %> |
+          <%= link_to 'Destroy', person, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+          <% if person.lose %>
+            | <%= link_to 'To Revive', revive_person_path(person), method: :post, data: { confirm: "Do you want to revive #{person.name}" }, class: "btn btn-warning" %>
+          <% else %>
+            | <%= link_to 'Start a Fight', fight_person_path(person), method: :post, data: { confirm: "Do you what to send #{person.name} to fight?" }, class: "btn btn-primary" %>
+          <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>
@@ -32,4 +41,4 @@
 
 <br>
 
-<%= link_to 'New Person', new_person_path %>
+<%= link_to 'New Person', new_person_path, class: "btn btn-dark" %>

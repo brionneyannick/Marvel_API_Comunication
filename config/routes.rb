@@ -16,7 +16,15 @@ Rails.application.routes.draw do
 
   resources :comics, only: [:index, :show]
 
-  resources :people
+  resources :people do
+    member do
+      post 'revive'
+      post 'fight'
+    end
+    collection do
+      get "ranking"
+    end
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root "people#index"
 end

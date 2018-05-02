@@ -1,10 +1,10 @@
 class PeopleController < ApplicationController
-  before_action :set_person, only: [:show, :edit, :update, :destroy]
+  before_action :set_person, only: [:show, :edit, :update, :destroy, :revive, :fight]
 
   # GET /people
   # GET /people.json
   def index
-    @people = Person.all
+    @people = Person.all.order(:name)
   end
 
   # GET /people/1
@@ -59,6 +59,27 @@ class PeopleController < ApplicationController
       format.html { redirect_to people_url, notice: 'Person was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def revive
+    @person.update(lose: false)
+    respond_to do |format|
+      format.html { redirect_to people_url, notice: 'Person was successfully revived.' }
+      format.json { head :no_content }
+    end
+  end
+
+  def fight
+    Fight.start(@person)
+    respond_to do |format|
+      format.html { redirect_to people_path }
+      format.json { head :no_content }
+    end
+  end
+
+  def ranking
+    @people = Person.all
+    @people = @people.sort_by {|person| person.wins - person.loses }.reverse
   end
 
   private
