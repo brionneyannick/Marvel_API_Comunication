@@ -3,6 +3,4 @@ class FightsController < ApplicationController
     @fights = Fight.all
   end
 
-  def show
-  end
 end
