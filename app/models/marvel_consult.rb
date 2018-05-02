@@ -1,21 +1,10 @@
 class MarvelConsult
-  def self.public_key
-    ENV['MARVEL_PUBLIC_KEY']
-  end
-
-  def self.private_key
-    ENV['MARVEL_PRIVATE_KEY']
-  end
-
-  def self.timestamp
-    DateTime.now.to_s
-  end
 
   def self.digest
-    Digest::MD5.hexdigest( "#{timestamp}#{private_key}#{public_key}" )
+    Digest::MD5.hexdigest( "#{DateTime.now.to_s}#{ENV['MARVEL_PRIVATE_KEY']}#{ENV['MARVEL_PUBLIC_KEY']}" )
   end
 
   def self.credentials
-    "ts=#{MarvelConsult.timestamp}&apikey=#{MarvelConsult.public_key}&hash=#{MarvelConsult.digest}"
+    "ts=#{DateTime.now.to_s}&apikey=#{ENV['MARVEL_PUBLIC_KEY']}&hash=#{MarvelConsult.digest}"
   end
 end
