@@ -1,0 +1,5 @@
+<% @series.each do |serie| %>
+  <div><a href="<%= series_path(serie.serie_id) %>"><%= image_tag "#{serie.thumbnail}.jpg" %></a></div>
+  <div><%= serie.title %></div>
+  <div><%= serie.serie_id %></div>
+<% end %>

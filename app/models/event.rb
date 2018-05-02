@@ -28,4 +28,17 @@ class Event
       thumbnail: results['thumbnail']['path']
     )
   end
+
+  def self.by_character(id)
+    events = []
+    results = MarvelComunication.character_events(id)
+    results.each do |result|
+      events << Event.new(
+        title: result['title'],
+        event_id: result['id'],
+        thumbnail: result['thumbnail']['path']
+      )
+    end
+    events
+  end
 end

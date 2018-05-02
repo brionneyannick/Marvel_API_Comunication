@@ -2,7 +2,6 @@
   <thead>
     <tr>
       <th>Person</th>
-      <th></th>
       <th>Character</th>
       <th>WINNER</th>
     </tr>
@@ -12,28 +11,29 @@
       <tr>
         <td>
           <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="<%= fight.winner %>" alt="Card image cap">
+            <%= image_tag fight.person.img, :class => "card-img-top fight_view" %>
             <div class="card-body">
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            </div>
-          </div>
-        </td>
-        <td>
-
-        </td>
-        <td>
-          <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="<%=  %>" alt="Card image cap">
-            <div class="card-body">
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <p class="card-text"><%= fight.person.name %></p>
             </div>
           </div>
         </td>
         <td>
           <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="<%=  %>" alt="Card image cap">
+            <%= image_tag "#{fight.character.thumbnail}.jpg", :class => "card-img-top fight_view" %>
             <div class="card-body">
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <p class="card-text"><%= fight.character.name %></p>
+            </div>
+          </div>
+        </td>
+        <td>
+          <div class="card" style="width: 18rem;">
+            <% if fight.win_class.include?("Person") %>
+              <%= image_tag fight.winner.img, :class => "card-img-top fight_view" %>
+            <% else %>
+              <%= image_tag "#{fight.winner.thumbnail}.jpg", :class => "card-img-top fight_view" %>
+            <% end %>
+            <div class="card-body">
+              <p class="card-text"><%= fight.winner.name %></p>
             </div>
           </div>
         </td>

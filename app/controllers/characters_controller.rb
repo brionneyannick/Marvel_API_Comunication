@@ -6,4 +6,16 @@ class CharactersController < ApplicationController
  def show
    @character = Character.find(params[:id])
  end
+
+ def comics
+   @comics = Comic.by_character(params[:id])
+ end
+
+ def events
+   @events = Event.by_character(params[:id])
+ end
+
+ def series
+   @series = Serie.by_character(params[:id])
+ end
 end

@@ -8,6 +8,24 @@ class MarvelComunication
     results = response_body['data']['results'][0]
   end
 
+  def self.character_comics(id)
+    response = self.get("/v1/public/characters/#{id}/comics?#{MarvelConsult.credentials}")
+    response_body = JSON.parse(response.body)
+    results = response_body['data']['results']
+  end
+
+  def self.character_events(id)
+    response = self.get("/v1/public/characters/#{id}/events?#{MarvelConsult.credentials}")
+    response_body = JSON.parse(response.body)
+    results = response_body['data']['results']
+  end
+
+  def self.character_series(id)
+    response = self.get("/v1/public/characters/#{id}/series?#{MarvelConsult.credentials}")
+    response_body = JSON.parse(response.body)
+    results = response_body['data']['results']
+  end
+
   def self.all_characters
     response = self.get("/v1/public/characters?#{MarvelConsult.credentials}")
     response_body = JSON.parse(response.body)
@@ -50,4 +68,5 @@ class MarvelComunication
     response_body = JSON.parse(response.body)
     results = response_body['data']['results']
   end
+
 end

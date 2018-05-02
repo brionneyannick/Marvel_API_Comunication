@@ -28,4 +28,17 @@ class Serie
       thumbnail: results['thumbnail']['path']
     )
   end
+
+  def self.by_character(id)
+    series = []
+    results = MarvelComunication.character_series(id)
+    results.each do |result|
+      series << Serie.new(
+        title: result['title'],
+        serie_id: result['id'],
+        thumbnail: result['thumbnail']['path']
+      )
+    end
+    series
+  end
 end
