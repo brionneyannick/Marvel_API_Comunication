@@ -8,11 +8,11 @@ class MarvelConsult
   end
 
   def self.timestamp
-    DateTime.now.to_s
+    timestamp = DateTime.now.to_s
   end
 
   def self.digest
-    Digest::MD5.hexdigest( "#{timestamp}#{private_key}#{public_key}" )
+    Digest::MD5.hexdigest("#{timestamp}#{private_key}#{public_key}")
   end
 
   def self.credentials
