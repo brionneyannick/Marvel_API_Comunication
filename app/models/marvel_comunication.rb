@@ -1,6 +1,6 @@
 class MarvelComunication
   include HTTParty
-  base_uri 'gateway.marvel.com:443'
+  base_uri 'gateway.marvel.com'
 
   def self.character(id)
     response = self.get("/v1/public/characters/#{id}?#{MarvelConsult.credentials}")
