@@ -1,10 +1,10 @@
 class MarvelConsult
   def self.public_key
-    ENV['MARVEL_PUBLIC_KEY']
+    "b161d7f95939418c7e609acdc2e7bde6"
   end
 
   def self.private_key
-    ENV['MARVEL_PRIVATE_KEY']
+    "c76a7bd70528111f5643f3bfea2e99d96ca83438"
   end
 
   def self.timestamp
