@@ -4,7 +4,8 @@ class PeopleController < ApplicationController
   # GET /people
   # GET /people.json
   def index
-    @people = Person.all.order(:name)
+    @people = Person.all
+    @people = @people.sort_by {|person| person.wins - person.loses }.reverse
   end
 
   # GET /people/1

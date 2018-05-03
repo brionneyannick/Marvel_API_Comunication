@@ -5,17 +5,22 @@
 <table class="table">
   <thead>
     <tr>
+      <th>Place</th>
       <th>Name</th>
       <th>Age</th>
       <th>Img</th>
       <th>Status</th>
-      <th></th>
+      <th>Actions</th>
+      <th>Wins</th>
+      <th>Loses</th>
+      <th>Rank</th>
     </tr>
   </thead>
 
   <tbody>
-    <% @people.each do |person| %>
+    <% @people.each_with_index do |person, place| %>
       <tr>
+        <td><h4><%= place+1 %></h4></td>
         <td><h4><%= person.name %></h4></td>
         <td><h4><%= person.age %></h4></td>
         <td><%= image_tag person.img, class: "img_index" %></td>
@@ -34,6 +39,9 @@
             | <%= link_to 'Start a Fight', fight_person_path(person), method: :post, data: { confirm: "Do you what to send #{person.name} to fight?" }, class: "btn btn-primary" %>
           <% end %>
         </td>
+        <td><h4><%= person.wins %></h4></td>
+        <td><h4><%= person.loses %></h4></td>
+        <td><h4><%= person.wins - person.loses %></h4></td>
       </tr>
     <% end %>
   </tbody>
