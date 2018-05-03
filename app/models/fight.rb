@@ -7,6 +7,10 @@ class Fight < ApplicationRecord
     until person.lose
       characters = Character.find_all
       used_characters = UsedCharacter.ids
+      if used_characters.count > 19
+        UsedCharacter.destroy_all
+        used_characters = []
+      end
       character = characters.reject { |i| used_characters.include?(i.character_id) }.sample
       character_dice = 0
       person_dice =  0

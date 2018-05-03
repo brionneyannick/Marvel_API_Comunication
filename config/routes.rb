@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
-  resources :fights, only: [:index, :show]
+  resources :fights, only: [:index, :show] do
+    collection do
+      post 'destroy_all'
+    end
+  end
 
   resources :series, only: [:index, :show]
 

@@ -5,3 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+ages = [*10..70]
+
+20.times do
+  Person.create(name: Faker::Name.unique.name, age: ages.sample, img: "Bob.png" )
+end

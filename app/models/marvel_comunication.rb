@@ -29,7 +29,6 @@ class MarvelComunication
   def self.all_characters
     response = self.get("/v1/public/characters?#{MarvelConsult.credentials}")
     response_body = JSON.parse(response.body)
-    puts "RESPONSE BODY: #{response_body}"
     results = response_body['data']['results']
   end
 

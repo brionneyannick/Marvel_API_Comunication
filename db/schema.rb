@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 20180501214411) do
   create_table "people", force: :cascade do |t|
     t.string "name", null: false
     t.string "age", null: false
-    t.string "img", null: false
+    t.string "img"
     t.boolean "lose", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

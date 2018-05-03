@@ -3,7 +3,7 @@ class CreatePeople < ActiveRecord::Migration[5.1]
     create_table :people do |t|
       t.string :name, null: false
       t.string :age, null: false
-      t.string :img, null: false
+      t.string :img
       t.boolean :lose, default: false
 
       t.timestamps
