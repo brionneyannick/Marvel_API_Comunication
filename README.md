@@ -30,3 +30,7 @@ Things you may want to cover:
 * rails db:migrate
 
 * rails db:seed
+
+#This is heroku link
+
+* https://marvel-consumer-api.herokuapp.com/
