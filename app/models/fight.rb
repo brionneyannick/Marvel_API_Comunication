@@ -2,7 +2,7 @@ class Fight < ApplicationRecord
   validates :win_id, :lose_id, :win_class, :lose_class, presence: true
 
   def self.start(person = Person.where(lose: false).sample)
-
+    byebug
     dices = [1, 2, 3, 4, 5, 6]
     until person.lose
       characters = Character.find_all
@@ -72,6 +72,10 @@ class Fight < ApplicationRecord
     else
       character = Character.find(lose_id)
     end
+  end
+
+  def self.empty
+    Fight.destroy_all
   end
 
 end

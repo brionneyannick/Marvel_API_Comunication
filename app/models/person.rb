@@ -9,4 +9,7 @@ class Person < ApplicationRecord
     wins = Fight.where(lose_id: self.id).count
   end
 
+  def self.revive_all
+    Person.all.update(lose:false)
+  end
 end
