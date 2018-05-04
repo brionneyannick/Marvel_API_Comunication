@@ -23,11 +23,8 @@ every 10.minutes do
   runner "Fight.start"
 end
 
-every 3.hours do
-  command "UsedCharacter.destroy_all"
-end
-
 every 1.day, at: ['12 am'] do
+  command "UsedCharacter.destroy_all"
   command "Fight.destroy_all"
   command "Person.all.update(lose:false)"
 end

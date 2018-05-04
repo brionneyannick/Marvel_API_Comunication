@@ -21,4 +21,12 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* ...
+* To make this app work on your localHost run this commands on your aplication folder:
+
+* bundle
+
+* rails db:create
+
+* rails db:migrate
+
+* rails db:seed
